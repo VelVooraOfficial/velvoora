@@ -1489,3 +1489,31 @@ footer {
     }
 
 }
+/* FOOTER PAGE LINKS */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #c5a46d;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+@media(max-width:600px) {
+    .footer-links {
+        gap: 15px;
+    }
+}
