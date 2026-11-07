@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelVoora | Discover. Shop. Save.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Announcement Bar -->
+<div class="top-bar">
+    Welcome to VelVoora — Discover Amazing Products & Deals
+</div>
+
+<!-- Main Header -->
+<header class="main-header">
+    <a href="#" class="logo">
+    <img src="./velvoora-logo.png" alt="VelVoora Logo">
+</a>
+
+    <div class="search-box">
+        <input type="text" id="searchInput"
+            placeholder="Search products, brands and more...">
+        <button onclick="searchProducts()">Search</button>
+    </div>
+
+    <div class="header-actions">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+    </div>
+    <div class="shopping-actions">
+    <button class="header-action" onclick="showWishlist()">
+        ❤️ Wishlist <span id="wishlistCount">0</span>
+    </button>
+
+    <button class="header-action" onclick="showCart()">
+        🛍️ Bag <span id="cartCount">0</span>
+    </button>
+</div>
+</header>
+<!-- VELVOORA PREMIUM HERO BANNER -->
+
+<section class="hero-banner">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">WELCOME TO VELVOORA</span>
+
+        <h1>Discover Your<br>Everyday Favourites.</h1>
+
+        <p>
+            Explore amazing finds across fashion, beauty,
+            electronics, home and more.
+        </p>
+
+        <a href="#products" class="hero-button">
+            EXPLORE COLLECTION →
+        </a>
+
+        <div class="hero-features">
+            <span>✦ Handpicked Finds</span>
+            <span>✦ Amazing Deals</span>
+        </div>
+
+    </div>
+
+    <div class="hero-decoration">
+        <div class="hero-circle">
+            <span>V</span>
+            <small>VELVOORA</small>
+        </div>
+    </div>
+
+</section>
+<!-- TRENDING PRODUCTS SECTION -->
+<section class="trending-section" id="trendingSection">
+
+    <div class="trending-heading">
+        <div>
+            <span class="section-tag">HANDPICKED FOR YOU</span>
+            <h2>🔥 Trending Now</h2>
+            <p>Discover the products everyone is loving.</p>
+        </div>
+
+        <a href="#products">Explore All →</a>
+    </div>
+
+    <div class="product-grid" id="trendingProductGrid"></div>
+
+</section>
+<!-- Category Gallery -->
+<section class="category-section">
+    <div class="section-heading">
+        <h2>Explore Collections</h2>
+        <p>Find something you love</p>
+    </div>
+
+    <div class="category-gallery">
+
+        <button class="category-card" onclick="filterCategory('Electronics')">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500" alt="Electronics">
+            <span>Electronics</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Fashion')">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500" alt="Fashion">
+            <span>Fashion</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Footwear')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Footwear">
+            <span>Footwear</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Beauty')">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500" alt="Beauty">
+            <span>Beauty</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Home')">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500" alt="Home">
+            <span>Home</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Watches')">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Watches">
+            <span>Watches</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Baby')">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500" alt="Baby">
+            <span>Baby Products</span>
+        </button>
+
+        <button class="category-card" onclick="filterCategory('Sports')">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500" alt="Sports">
+            <span>Sports</span>
+        </button>
+
+    </div>
+</section>
+
+<!-- Main Shopping Area -->
+<main class="shopping-layout" id="products">
+
+    <!-- Left Filter Sidebar -->
+    <aside class="filter-sidebar">
+
+        <div class="filter-heading">
+            <h3>Filters</h3>
+            <button onclick="resetFilters()">Reset</button>
+        </div>
+
+        <div class="filter-group">
+            <h4>Availability</h4>
+
+            <label>
+                <input type="checkbox" id="inStock" checked>
+                In Stock
+            </label>
+
+            <label>
+                <input type="checkbox" id="outStock">
+                Out of Stock
+            </label>
+        </div>
+
+        <div class="filter-group">
+            <h4>Product Type</h4>
+
+            <label><input type="checkbox" class="category-filter" value="Electronics"> Electronics</label>
+            <label><input type="checkbox" class="category-filter" value="Fashion"> Fashion</label>
+            <label><input type="checkbox" class="category-filter" value="Footwear"> Footwear</label>
+            <label><input type="checkbox" class="category-filter" value="Beauty"> Beauty</label>
+            <label><input type="checkbox" class="category-filter" value="Home"> Home</label>
+            <label><input type="checkbox" class="category-filter" value="Watches"> Watches</label>
+            <label><input type="checkbox" class="category-filter" value="Baby"> Baby Products</label>
+            <label><input type="checkbox" class="category-filter" value="Sports"> Sports</label>
+        </div>
+
+        <div class="filter-group">
+            <h4>Price Range</h4>
+
+            <label for="minPrice">Minimum Price (₹)</label>
+            <input type="number" id="minPrice" placeholder="0" min="0">
+
+            <label for="maxPrice">Maximum Price (₹)</label>
+            <input type="number" id="maxPrice" placeholder="10000" min="0">
+
+            <button class="apply-filter" onclick="applyFilters()">Apply Price</button>
+        </div>
+
+    </aside>
+
+    <!-- Product Listing -->
+    <section class="product-section">
+
+        <div class="product-toolbar">
+            <div>
+                <h2>Discover Products</h2>
+                <p>Explore products worth shopping for</p>
+            </div>
+
+            <div class="sort-box">
+                <label for="sortSelect">Sort By</label>
+
+                <select id="sortSelect" onchange="sortProducts()">
+                    <option value="default">Relevance</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="active-filters" id="activeFilters">
+            <span>All Products</span>
+        </div>
+
+        <div id="productGrid" class="product-grid">
+            <!-- Products will load here through JavaScript -->
+        </div>
+
+        <div class="pagination">
+            <button onclick="showAllProducts()">View All Products</button>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- About -->
+<section class="about-section" id="about">
+    <h2>Discover. Shop. Save.</h2>
+    <p>
+        VelVoora brings interesting products from different shopping
+        platforms together in one place. Explore collections, discover
+        deals and find products worth buying.
+    </p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <h2>VelVoora</h2>
+    <p>Discover. Shop. Save.</p>
+    <p>© 2026 VelVoora. All rights reserved.</p>
+    <p class="disclosure">
+        Affiliate Disclosure: We may earn a commission when you purchase
+        through qualifying affiliate links, at no extra cost to you.
+    </p>
+</footer>
+<!-- MOBILE BOTTOM NAVIGATION -->
+
+<nav class="mobile-bottom-nav">
+
+```
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <span>🏠</span>
+    <small>Home</small>
+</button>
+
+<button onclick="document.querySelector('.category-gallery').scrollIntoView({behavior: 'smooth'})">
+    <span>📂</span>
+    <small>Categories</small>
+</button>
+
+<button onclick="showWishlist()">
+    <span>❤️</span>
+    <small>Wishlist <b id="mobileWishlistCount">0</b></small>
+</button>
+
+<button onclick="showCart()">
+    <span>🛍️</span>
+    <small>Bag <b id="mobileCartCount">0</b></small>
+</button>
+```
+
+</nav>
+<script src="script.js"></script>
+```
+
+</body>
+</html>
